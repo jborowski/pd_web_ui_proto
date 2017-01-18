@@ -1,7 +1,11 @@
 var loop11Reversed = false;
 var loop12Reversed = false;
+var loop13Reversed = false;
+var loop14Reversed = false;
 var loop21Reversed = false;
 var loop22Reversed = false;
+var loop23Reversed = false;
+var loop24Reversed = false;
 
 nx.onload = function() {
 
@@ -128,6 +132,20 @@ function update() {
     }
     slider22.draw();
 
+    if (loop23Reversed) {
+        slider23.val.value = 1 - loop23_rev.currentTime / loop23_rev.duration;
+    } else {
+        slider23.val.value = loop23.currentTime / loop23.duration;
+    }
+    slider23.draw();
+
+    if (loop24Reversed) {
+        slider24.val.value = 1 - loop24_rev.currentTime / loop24_rev.duration;
+    } else {
+        slider24.val.value = loop24.currentTime / loop24.duration;
+    }
+    slider24.draw();
+
     if (dial11.val.value >= 0.12 && dial11.val.value < 0.37) {
         dial11.label = "back";
     } else if (dial11.val.value >= 0.37 && dial11.val.value < 0.62) {
@@ -156,6 +174,16 @@ function update() {
         dial13.label = "fwd";
     } else {
         dial13.label = "down";
+    }
+
+    if (dial14.val.value >= 0.14 && dial14.val.value < 0.37) {
+        dial14.label = "back";
+    } else if (dial14.val.value >= 0.37 && dial14.val.value < 0.62) {
+        dial14.label = "up";
+    } else if (dial14.val.value >= 0.62 && dial14.val.value < 0.87) {
+        dial14.label = "fwd";
+    } else {
+        dial14.label = "down";
     }
 
     if (dial21.val.value >= 0.12 && dial21.val.value < 0.37) {
@@ -188,6 +216,16 @@ function update() {
         dial23.label = "down";
     }
 
+    if (dial24.val.value >= 0.12 && dial24.val.value < 0.37) {
+        dial24.label = "back";
+    } else if (dial24.val.value >= 0.37 && dial24.val.value < 0.62) {
+        dial24.label = "up";
+    } else if (dial24.val.value >= 0.62 && dial24.val.value < 0.87) {
+        dial24.label = "fwd";
+    } else {
+        dial24.label = "down";
+    }
+
 }
 
 function resetSliders() {
@@ -197,10 +235,14 @@ function resetSliders() {
     slider12.draw();
     slider13.val.value = 0;
     slider13.draw();
+    slider14.val.value = 0;
+    slider14.draw();
     slider21.val.value = 0;
     slider21.draw();
     slider22.val.value = 0;
     slider22.draw();
     slider23.val.value = 0;
     slider23.draw();
+    slider24.val.value = 0;
+    slider24.draw();
 }
